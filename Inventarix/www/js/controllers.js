@@ -1,8 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('mainCtrl', ($scope) =>{
+.controller('mainCtrl', ($scope, $stateParams) =>{
     $scope.user = {
-        'name':'Rolin Azmitia'
+        'name':"Rolin Azmitia"
     };
+})
+
+.controller('pepeCtrl', ($scope, $stateParams) => {
     
 })
