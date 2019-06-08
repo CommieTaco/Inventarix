@@ -1,17 +1,9 @@
-'use strict'
+const express = require('express')
+const router = express.Router()
+const Model = require('../models/user')
 
-var mongoose =  require('mongoose');
+router.get('/', async (req, res) => {
+    console.log(Model.find())
+})
 
-var Schema = mongoose.Schema;
-
-var UserSchema = Schema({
-    name: String,
-    surname: String,
-    nick: String,
-    email: String,
-    password: String,
-    role: String, 
-    image: String
-});
-
-module.exports = mongoose.model('User', UserSchema);
+module.exports = router
