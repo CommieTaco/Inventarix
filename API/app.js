@@ -1,10 +1,15 @@
+'use strict'
+
 var express = require('express');
+var bodyParser = require('body-parser');
+
 var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+var user_routes = require('./routes/user'); 
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+
+app.use('/api', user_routes);
+
+module.exports = app;
