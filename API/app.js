@@ -3,6 +3,8 @@ const bodyParser= require('body-parser')
 
 const db = require('./config/database')
 
+
+
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -23,6 +25,8 @@ app.get('/', (request, response) => {
   })
 })
 
-app.use('/users', require('./routes/user'))
+require('./routes/users')(app);
 
-module.exports = app;
+app.listen(3000, () => {
+  console.log("Server is listening on port 3000");
+});
