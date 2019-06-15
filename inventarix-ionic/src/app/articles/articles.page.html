@@ -23,21 +23,25 @@
     <ion-button (click)="openFirst()">
       <ion-icon slot="icon-only" name="stats"></ion-icon>
     </ion-button>
-    <ion-button slot="end">
+    <ion-button slot="end" (click)="addArticle()">
       <ion-icon name="add-circle-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let article of articles">
-    <ion-item>
+
+
+  <ion-list *ngFor="let article of artics">
+    <ion-item (click)="toDetail(article._id)">
       <ion-label>
         <ion-text color="primary">
-          <h1>{{article.name}</h1>
+          <h1>{{article.name}}</h1>
+          <h2>{{article.description}}</h2>
         </ion-text> {{article.price}}
+        {{article._id}}
       </ion-label>
-      <ion-button fill="clear" slot="end">
+      <ion-button fill="clear" slot="end" (click)="deleteArt(article._id)">
         <ion-icon name="close" color="danger"></ion-icon>
       </ion-button>
     </ion-item>

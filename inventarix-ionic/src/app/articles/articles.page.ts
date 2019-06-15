@@ -3,6 +3,7 @@ import { MenuController, NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { error } from '@angular/compiler/src/util';
 import { ConcatSource } from 'webpack-sources';
+import { version } from 'punycode';
 
 @Component({
   selector: 'app-articles',
@@ -15,38 +16,25 @@ export class ArticlesPage implements OnInit {
   constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient) { }
 
   ngOnInit() {
-    
+    this.loadArticles();
+  }
+
+  loadArticles(){
     this.http.get('http://localhost:3000/articles/')
     .subscribe(data =>{
-
-      
-      let pepe = JSON.stringify(data);
-      /* this.artics = pepe; 
-      console.log("POPO: "+JSON.stringify(data));
-      console.log("POPO: "+typeof data);
-      console.log("PAPA: "+Object.keys(data));
-      console.log("PAPA: "+data["name"]);
-
-      Object.keys(data).forEach( val => {
-        console.log("Val: "+val);
-      })
-      /*   this.data = data;
-      let pepe = data. */
-      /* this.articles = [data]; */
-      /* console.log("Data: "+this.articles.name); */
+      this.artics = JSON.parse(JSON.stringify(data));
     }), error => {
       console.log("Hubo un error");
       if(error.status == 404)
         console.log("No se pudo encontrar");
     };
-    
-    /* return this.articles; */
   }
 
   toComparison(){
     this.navCtrl.navigateRoot('/comparison');
   }
 
+<<<<<<< HEAD
 }
   export interface RootObject {
       _id: string;
@@ -68,3 +56,27 @@ export class MenuExample {
   }
 }
 
+=======
+  toDetail(id){
+    console.log("ID: "+id);
+    /* this.navCtrl.navigateRoot('/article/'+id); */
+  }
+
+  addArticle(){
+    
+  }
+
+  deleteArt(id){
+
+    this.http.delete('http://localhost:3000/articles/'+id)
+    .subscribe(data => {
+      console.log("Artículo borrado exitosamente");
+      
+      this.navCtrl.navigateRoot('/articles');
+    }), error => {
+      console.log("No se pudo eliminar el artículo");
+    }
+  }
+
+}
+>>>>>>> 11fbd0572167c5ae09fbe87ad6e0ffd7a9a2ec1e
