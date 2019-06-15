@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, NavController } from '@ionic/angular';
+import { MenuController, NavController, ModalController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { error } from '@angular/compiler/src/util';
 import { ConcatSource } from 'webpack-sources';
 import { version } from 'punycode';
+import { ModalPagePage } from '../modal-page/modal-page.page';
 
 @Component({
   selector: 'app-articles',
@@ -13,10 +14,15 @@ import { version } from 'punycode';
 export class ArticlesPage implements OnInit {
 
   public artics: [];
-  constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient) { }
+  constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.loadArticles();
+  }
+
+  cerrarMenu()
+  {
+      this.menu.close('content1');
   }
 
   loadArticles(){
@@ -36,11 +42,16 @@ export class ArticlesPage implements OnInit {
 
   toDetail(id){
     console.log("ID: "+id);
-    /* this.navCtrl.navigateRoot('/article/'+id); */
+    this.navCtrl.navigateRoot('/slider');
   }
 
-  addArticle(){
-    
+  async openAddModal(){
+
+    const modal = await this.modalCtrl.create({
+      component: ModalPagePage
+    })
+
+    modal.present();  
   }
 
   deleteArt(id){

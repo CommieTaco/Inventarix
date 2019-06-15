@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="addArticle(form)" method="post">
+      <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input ngModel name="name"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-input ngModel name="descrip"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+          <ion-label position="floating">Precio</ion-label>
+          <ion-input ngModel type="number" name="price"></ion-input>
+      </ion-item>
+
+      <br>
+      <br>
+    <ion-button type="submit" expand="full" color="secondary">Agregar nuevo artículo</ion-button>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="padding-left:45%" (click)="closeModal()" color="primary">
+    <p>
+      Cerrar
+    </p>
+  </ion-toolbar>
+</ion-footer>
