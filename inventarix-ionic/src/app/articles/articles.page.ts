@@ -39,16 +39,15 @@ export class ArticlesPage implements OnInit {
     /* this.navCtrl.navigateRoot('/article/'+id); */
   }
 
+  addArticle(){
+    
+  }
+
   deleteArt(id){
 
-    console.log("ID a eliminar: "+id);
     this.http.delete('http://localhost:3000/articles/'+id)
     .subscribe(data => {
       console.log("Artículo borrado exitosamente");
-
-      setTimeout(() => {
-        this.loadArticles();   
-      }, 2000);
       
       this.navCtrl.navigateRoot('/articles');
     }), error => {
