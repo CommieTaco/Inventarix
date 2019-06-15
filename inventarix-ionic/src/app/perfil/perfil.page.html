@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+          </ion-buttons>
+      <ion-title>Perfil</ion-title>
+      <ion-button slot="end" (click)="addArticle()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Bienvenido</ion-card-subtitle>
+      <br>
+      <ion-card-title>Rodrigo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="person" size="large" slot="start"></ion-icon>
+      <br>
+      <ion-label>Name: Rodrigo</ion-label>
+      <br>
+      <ion-label>Lastname: Castillo</ion-label>
+      <br>
+      <ion-label>Username: devrodrig</ion-label>
+      <br>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
