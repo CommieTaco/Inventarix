@@ -15,11 +15,13 @@
 
 
   <ion-list *ngFor="let article of artics">
-    <ion-item>
+    <ion-item (click)="toDetail(article._id)">
       <ion-label>
         <ion-text color="primary">
           <h1>{{article.name}}</h1>
+          <h2>{{article.description}}</h2>
         </ion-text> {{article.price}}
+        {{article._id}}
       </ion-label>
       <ion-button fill="clear" slot="end">
         <ion-icon name="close" color="danger"></ion-icon>

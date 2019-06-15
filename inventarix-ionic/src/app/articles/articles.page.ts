@@ -32,14 +32,8 @@ export class ArticlesPage implements OnInit {
     this.navCtrl.navigateRoot('/comparison');
   }
 
-}
-  export interface RootObject {
-      _id: string;
-      name: string;
-      description: string;
-      price: string;
-      url: string;
-      createdAt: Date;
-      updatedAt: Date;
-      __v: number;
+  toDetail(id){
+    console.log("ID: "+id);
+    /* this.navCtrl.navigateRoot('/article/'+id); */
   }
+}
