@@ -3,6 +3,7 @@ import { NavParams, ModalController, ToastController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
+import { ArticlePage } from '../article/article.page';
 import { ArticlesPage } from '../articles/articles.page';
 
 @Component({
@@ -12,7 +13,7 @@ import { ArticlesPage } from '../articles/articles.page';
 })
 export class ModalPagePage implements OnInit {
 
-  constructor(private navParams: NavParams, private modalCtrl: ModalController, public toastController: ToastController, public http: HttpClient, public artPages: ArticlesPage) { }
+  constructor(private navParams: NavParams, private modalCtrl: ModalController, public toastController: ToastController, public http: HttpClient, public artPage: ArticlesPage) { }
 
   ngOnInit() {
   }
