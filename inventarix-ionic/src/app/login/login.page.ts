@@ -43,7 +43,6 @@ export class LoginPage implements OnInit {
         console.log("Autenticación correcta");
         this.navCtrl.navigateRoot('/articles');
         let da = JSON.parse(JSON.stringify(data))
-        console.log(da.username+" has fjkghsdk fgskdafg sdf gshdaghfjagjs jsha fsdjsfdasgdas");
       }, error => {
         if(error.status==400){
           this.presentToast('Llene todo los campos');

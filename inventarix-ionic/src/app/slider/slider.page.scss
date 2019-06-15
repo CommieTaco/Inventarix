@@ -1,0 +1,11 @@
+ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+  }
+ion-content{
+background: green;
+}
+ion-content ion-card{
+width: 100%;
+}
