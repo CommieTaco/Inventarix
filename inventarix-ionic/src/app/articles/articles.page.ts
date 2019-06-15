@@ -3,6 +3,7 @@ import { MenuController, NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { error } from '@angular/compiler/src/util';
 import { ConcatSource } from 'webpack-sources';
+import { version } from 'punycode';
 
 @Component({
   selector: 'app-articles',
@@ -15,7 +16,10 @@ export class ArticlesPage implements OnInit {
   constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient) { }
 
   ngOnInit() {
-    
+    this.loadArticles();
+  }
+
+  loadArticles(){
     this.http.get('http://localhost:3000/articles/')
     .subscribe(data =>{
       this.artics = JSON.parse(JSON.stringify(data));
@@ -24,8 +28,6 @@ export class ArticlesPage implements OnInit {
       if(error.status == 404)
         console.log("No se pudo encontrar");
     };
-    
-    /* return this.articles; */
   }
 
   toComparison(){
@@ -36,4 +38,22 @@ export class ArticlesPage implements OnInit {
     console.log("ID: "+id);
     /* this.navCtrl.navigateRoot('/article/'+id); */
   }
+
+  deleteArt(id){
+
+    console.log("ID a eliminar: "+id);
+    this.http.delete('http://localhost:3000/articles/'+id)
+    .subscribe(data => {
+      console.log("Artículo borrado exitosamente");
+
+      setTimeout(() => {
+        this.loadArticles();   
+      }, 2000);
+      
+      this.navCtrl.navigateRoot('/articles');
+    }), error => {
+      console.log("No se pudo eliminar el artículo");
+    }
+  }
+
 }

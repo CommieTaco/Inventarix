@@ -23,7 +23,7 @@
         </ion-text> {{article.price}}
         {{article._id}}
       </ion-label>
-      <ion-button fill="clear" slot="end">
+      <ion-button fill="clear" slot="end" (click)="deleteArt(article._id)">
         <ion-icon name="close" color="danger"></ion-icon>
       </ion-button>
     </ion-item>
