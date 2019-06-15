@@ -16,6 +16,10 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
+  loginModal(){
+    this.navCtrl.navigateRoot('/login');
+  }
+
   async presentToast(message) {
     const toast = await this.toastController.create({
       message: message,
