@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const {config} = require('../config')
 
-// const MONGO_URI = `mongodb://${config.dbHost}:${config.dbPort}/${config.dbName}`
-const MONGO_URI = `mongodb+srv://${config.dbUser}:${config.dbPassword}@${config.dbHost}/${config.dbName}`
+const MONGO_URI = `mongodb://${config.dbHost}:${config.dbPort}/${config.dbName}`
+//const MONGO_URI = `mongodb+srv://${config.dbUser}:${config.dbPassword}@${config.dbHost}/${config.dbName}`
 
 mongoose.Promise = global.Promise;
 
