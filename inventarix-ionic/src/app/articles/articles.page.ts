@@ -18,22 +18,7 @@ export class ArticlesPage implements OnInit {
     
     this.http.get('http://localhost:3000/articles/')
     .subscribe(data =>{
-
-      
-      let pepe = JSON.stringify(data);
-      /* this.artics = pepe; 
-      console.log("POPO: "+JSON.stringify(data));
-      console.log("POPO: "+typeof data);
-      console.log("PAPA: "+Object.keys(data));
-      console.log("PAPA: "+data["name"]);
-
-      Object.keys(data).forEach( val => {
-        console.log("Val: "+val);
-      })
-      /*   this.data = data;
-      let pepe = data. */
-      /* this.articles = [data]; */
-      /* console.log("Data: "+this.articles.name); */
+      this.artics = JSON.parse(JSON.stringify(data));
     }), error => {
       console.log("Hubo un error");
       if(error.status == 404)
