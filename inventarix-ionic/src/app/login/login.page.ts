@@ -42,14 +42,15 @@ export class LoginPage implements OnInit {
       .subscribe(data => {
         console.log("Autenticación correcta");
         this.navCtrl.navigateRoot('/articles');
-        console.log(data);
+        let da = JSON.parse(JSON.stringify(data))
+        console.log(da.username+" has fjkghsdk fgskdafg sdf gshdaghfjagjs jsha fsdjsfdasgdas");
       }, error => {
         if(error.status==400){
           this.presentToast('Llene todo los campos');
         }else if(error.status==404){
           this.presentToast('El usuario no existe');
         }
-        console.log(error.status);
+        console.log(error);
     });
   }
 }

@@ -21,7 +21,7 @@ export class ArticlesPage implements OnInit {
 
       
       let pepe = JSON.stringify(data);
-      /* this.artics = pepe; */
+      /* this.artics = pepe; 
       console.log("POPO: "+JSON.stringify(data));
       console.log("POPO: "+typeof data);
       console.log("PAPA: "+Object.keys(data));
