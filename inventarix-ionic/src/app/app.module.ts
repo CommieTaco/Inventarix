@@ -11,10 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 import {BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import {HttpClientModule} from '@angular/common/http';
+import { ModalPagePageModule } from './modal-page/modal-page.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+    ModalPagePageModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
