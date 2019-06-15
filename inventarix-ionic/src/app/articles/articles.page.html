@@ -1,19 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
     <ion-title>Artículos</ion-title>
-    <ion-button (click)="toComparison()">
-      <ion-icon slot="icon-only" name="stats"></ion-icon>
-    </ion-button>
-    <ion-button slot="end" (click)="addArticle()">
-      <ion-icon name="add-circle-outline"></ion-icon>
-    </ion-button>
+    
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-
-
   <ion-list *ngFor="let article of artics">
     <ion-item (click)="toDetail(article._id)">
       <ion-label>

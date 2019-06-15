@@ -19,6 +19,12 @@ export class ArticlesPage implements OnInit {
     this.loadArticles();
   }
 
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+
   loadArticles(){
     this.http.get('http://localhost:3000/articles/')
     .subscribe(data =>{
