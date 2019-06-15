@@ -9,7 +9,8 @@ export class SliderPage implements OnInit {
 
   slideOpts = {
     initialSlide: 0,
-    speed: 400
+    speed: 400,
+    watchSlidesProgress: false,
   };
   constructor() { }
 

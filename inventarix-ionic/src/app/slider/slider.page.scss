@@ -2,9 +2,13 @@ ion-card{
     display: flex;
     flex-direction: column;
     width: 500px;
+    background-color: white;
+    height: 550px;
   }
 ion-content{
 background: green;
+background-color: white;
+
 }
 ion-content ion-card{
 width: 100%;
