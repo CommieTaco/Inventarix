@@ -7,18 +7,24 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item >
-          <ion-icon name="ios-browsers" style="margin-right: 10px"></ion-icon>
-          Artículos
-        </ion-item>
-        <ion-item>
-          <ion-icon name="ios-contact" style="margin-right: 10px"></ion-icon>
-          Perfil
-        </ion-item>
-        <ion-item>
-          <ion-icon name="ios-log-out" style="margin-right: 10px"></ion-icon>
-          Cerrar sesión
-        </ion-item>
+        <ion-menu-toggle auto-hide="false"> 
+          <ion-item routerLink="/articles">
+            <ion-icon name="ios-browsers" style="margin-right: 10px"></ion-icon>
+            Artículos
+          </ion-item>
+      </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item routerLink="/perfil">
+            <ion-icon name="ios-contact" style="margin-right: 10px"></ion-icon>
+            Perfil
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item routerLink="/login">
+            <ion-icon name="ios-log-out" style="margin-right: 10px"></ion-icon>
+            Cerrar sesión
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>
