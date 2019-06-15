@@ -3,12 +3,13 @@ ion-card{
     flex-direction: column;
     width: 500px;
     background-color: white;
-    height: 500px;
   }
 ion-content{
-background: green;
-background-color: white;
+  background: green;
+  --overflow: hidden;
+  background-color: white;
 }
 ion-content ion-card{
 width: 100%;
 }
+
