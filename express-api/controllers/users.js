@@ -1,4 +1,27 @@
 const Users = require('../models/users');
+const bcrypt = require('bcrypt');
+
+
+exports.auth = (req, res) => {
+    if(!req.body.username || !req.body.password) {
+        return res.status(400).send({
+            message: "User can not be empty or bad request"
+        });
+    }
+    Users.findOne({username:req.body.username, password:req.body.password})
+    .then(users => {
+        if(users)
+            res.send(users)
+        else
+            res.status(404).send({
+                message:"Not found"
+            })
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving users."
+        });
+    });
+};
 
 exports.create = (req, res) => {
     if(!req.body.username || !req.body.password || !req.body.name || !req.body.lastname) {
@@ -6,20 +29,21 @@ exports.create = (req, res) => {
             message: "User can not be empty or bad request"
         });
     }
-
-    const user = new Users({
-        username: req.body.username, 
-        password: req.body.password,
-        name: req.body.name,
-        lastname: req.body.lastname
-    });
-
-    user.save()
-    .then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while creating the User."
+    bcrypt.hash(req.body.password, 10, function(err, hash) {
+        const user = new Users({
+            username: req.body.username, 
+            password: hash,
+            name: req.body.name,
+            lastname: req.body.lastname
+        });
+    
+        user.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while creating the User."
+            });
         });
     });
 };
