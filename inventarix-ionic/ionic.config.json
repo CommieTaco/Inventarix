@@ -1,11 +1,5 @@
 {
   "name": "inventarix-ionic",
   "integrations": {},
-  "type": "ionic1",
-  "watchPatterns": [
-    "scss/**/*",
-    "www/**/*",
-    "!www/lib/**/*",
-    "!www/**/*.map"
-  ]
+  "type": "angular"
 }
