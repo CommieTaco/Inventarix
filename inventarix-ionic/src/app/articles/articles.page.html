@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Articles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'article', item.id]">
+      {{item.name}}
+    </ion-item>
+  </ion-item>
+</ion-content>
