@@ -10,39 +10,6 @@
     </ion-toolbar>
   </ion-header>
   
-
-<<<<<<< HEAD
-    <ion-menu side="start" menuId="first">
-        <ion-header>
-          <ion-toolbar color="primary">
-            <ion-title>Start Menu</ion-title>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content>
-          <ion-list>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-          </ion-list>
-        </ion-content>
-      </ion-menu>
-
-  <ion-router-outlet main></ion-router-outlet>
-  <ion-toolbar color="primary">
-    <ion-title>Artículos</ion-title>
-    <ion-button (click)="openFirst()">
-      <ion-icon slot="icon-only" name="stats"></ion-icon>
-    </ion-button>
-    <ion-button slot="end" (click)="openAddModal()">
-      <ion-icon name="add-circle-outline"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
-=======
->>>>>>> 80b182e7ab9489e5297cf5089ab902909f297276
-
 <ion-content>
   <ion-list *ngFor="let article of artics">
     <ion-item (click)="toDetail(article._id)">
