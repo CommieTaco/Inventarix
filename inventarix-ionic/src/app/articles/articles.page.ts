@@ -34,29 +34,6 @@ export class ArticlesPage implements OnInit {
     this.navCtrl.navigateRoot('/comparison');
   }
 
-<<<<<<< HEAD
-}
-  export interface RootObject {
-      _id: string;
-      name: string;
-      description: string;
-      price: string;
-      url: string;
-      createdAt: Date;
-      updatedAt: Date;
-      __v: number;
-}
-
-export class MenuExample {
-  constructor(private menu: MenuController) { }
-  openFirst()
-  {
-    this.menu.enable(true,'first');
-    this.menu.open('first');
-  }
-}
-
-=======
   toDetail(id){
     console.log("ID: "+id);
     /* this.navCtrl.navigateRoot('/article/'+id); */
@@ -79,4 +56,3 @@ export class MenuExample {
   }
 
 }
->>>>>>> 11fbd0572167c5ae09fbe87ad6e0ffd7a9a2ec1e
