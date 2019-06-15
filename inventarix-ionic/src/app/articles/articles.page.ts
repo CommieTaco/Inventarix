@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-articles',
@@ -8,16 +10,25 @@ import { MenuController } from '@ionic/angular';
 })
 export class ArticlesPage implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  public articles = [];
+  constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient) { }
 
   ngOnInit() {
+    
+    this.http.get('http://localhost:3000/articles/findAll')
+    .subscribe(data =>{
 
+      this.articles = [data];
+      console.log("Data: "+this.articles);
+    }), error => {
+      console.log("Hubo un error");
+      if(error.status == 404)
+        console.log("No se pudo encontrar");
+    };
+    
   }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  toComparison(){
+    this.navCtrl.navigateRoot('/comparison');
   }
-
-
 }
