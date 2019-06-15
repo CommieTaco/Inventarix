@@ -14,12 +14,12 @@
 <ion-content>
 
 
-  <ion-list>
+  <ion-list *ngFor="let article of articles">
     <ion-item>
       <ion-label>
         <ion-text color="primary">
-          <h1>Artículo 1</h1>
-        </ion-text> $20
+          <h1>{{article.name}</h1>
+        </ion-text> {{article.price}}
       </ion-label>
       <ion-button fill="clear" slot="end">
         <ion-icon name="close" color="danger"></ion-icon>
