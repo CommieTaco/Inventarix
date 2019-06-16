@@ -1,9 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>article</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="articles"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Artículo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>$20</ion-card-subtitle>
+      <ion-card-title>Artículo 1</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      <ion-button color="primary" (click)=scan()>Scanner</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-item>
+      <ion-card> 
+          <ion-card-header> 
+          <ion-card-title>Barcode</ion-card-title> 
+          </ion-card-header> 
+          <ion-card-content> {{barcode}} </ion-card-content> 
+          </ion-card> 
+          <ion-button color="primary" (click)=scan()>Scanner</ion-button>
+</ion-item>
 </ion-content>

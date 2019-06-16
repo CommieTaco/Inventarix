@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Comparación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="false" [options]="slideOpts">
+    <ion-slide *ngFor="let article of artics">
+      <ion-card>
+        <ion-card-header>
+          <img src="../../assets/img/caja.webp">
+          <ion-card-subtitle>
+            <div>${{article.price}}</div>
+          </ion-card-subtitle>
+          <ion-card-title>{{article.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{article.description}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

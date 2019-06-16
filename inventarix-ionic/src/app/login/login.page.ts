@@ -37,19 +37,22 @@ export class LoginPage implements OnInit {
         "username": form.value.username,
         "password": form.value.password
     } 
-
+    
     this.http.post("http://localhost:3000/users/auth", postData)
       .subscribe(data => {
         console.log("Autenticación correcta");
         this.navCtrl.navigateRoot('/articles');
-        console.log(data);
+        let da = JSON.parse(JSON.stringify(data))
+        console.log(da['name'])
+        console.log(da['lastname'])
+        console.log(da['username'])
       }, error => {
         if(error.status==400){
           this.presentToast('Llene todo los campos');
         }else if(error.status==404){
           this.presentToast('El usuario no existe');
         }
-        console.log(error.status);
+        console.log(error);
     });
   }
 }

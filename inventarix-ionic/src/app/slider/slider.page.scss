@@ -1,0 +1,15 @@
+ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: white;
+  }
+ion-content{
+  background: green;
+  --overflow: hidden;
+  background-color: white;
+}
+ion-content ion-card{
+width: 100%;
+}
+
