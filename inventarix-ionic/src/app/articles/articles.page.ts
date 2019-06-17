@@ -5,6 +5,7 @@ import { error } from '@angular/compiler/src/util';
 import { ConcatSource } from 'webpack-sources';
 import { version } from 'punycode';
 import { ModalPagePage } from '../modal-page/modal-page.page';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-articles',
@@ -12,10 +13,17 @@ import { ModalPagePage } from '../modal-page/modal-page.page';
   styleUrls: ['./articles.page.scss'],
 })
 export class ArticlesPage implements OnInit {
-
+  public barcode: string;
   public artics: [];
-  constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient, private modalCtrl: ModalController) { }
+  constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient, private modalCtrl: ModalController, public barcodeScanner: BarcodeScanner) { }
 
+  scan(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.barcode = barcodeData['text'];     
+      }).catch(err=> {
+        this.barcode = JSON.stringify(err);
+    });
+}
   ngOnInit() {
     this.loadArticles();
   }

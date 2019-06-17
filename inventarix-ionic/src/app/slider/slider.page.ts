@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ViewChild } from '@angular/core'
 
 @Component({
   selector: 'app-slider',
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./slider.page.scss'],
 })
 export class SliderPage implements OnInit {
-
+  @ViewChild('slides') slides;
   slideOpts = {
     initialSlide: 0,
     speed: 400,
@@ -19,7 +20,11 @@ export class SliderPage implements OnInit {
   ngOnInit() {
     this.loadArticles();
   }
-
+  public slideSlideTo(index) {
+    this.slides.getSlider().update();
+    this.slides.slideTo(index, 400);
+  }
+  
   loadArticles(){
     this.http.get('http://localhost:3000/articles/')
     .subscribe(data =>{
