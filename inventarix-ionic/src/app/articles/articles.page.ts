@@ -6,6 +6,7 @@ import { ConcatSource } from 'webpack-sources';
 import { version } from 'punycode';
 import { ModalPagePage } from '../modal-page/modal-page.page';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-articles',
@@ -15,7 +16,11 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 export class ArticlesPage implements OnInit {
   public barcode: string;
   public artics: [];
-  constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient, private modalCtrl: ModalController, public barcodeScanner: BarcodeScanner) { }
+  passedUsername = null;
+  passedName = null;
+  passedLastname = null;
+  
+  constructor(private menu: MenuController, public navCtrl: NavController, public http: HttpClient, private modalCtrl: ModalController, public barcodeScanner: BarcodeScanner, private activatedRoute: ActivatedRoute) { }
 
   scan(){
     this.barcodeScanner.scan().then(barcodeData => {
@@ -26,6 +31,11 @@ export class ArticlesPage implements OnInit {
 }
   ngOnInit() {
     this.loadArticles();
+    this.passedUsername = this.activatedRoute.snapshot.paramMap.get('username');
+    this.passedName = this.activatedRoute.snapshot.paramMap.get('name');
+    this.passedLastname = this.activatedRoute.snapshot.paramMap.get('lastname');
+    //console.log(this.passedUsername);
+    console.log(JSON.stringify(this.passedUsername));
   }
 
   cerrarMenu()

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';  
+import { GlobalProvider } from '../provider.service'; 
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,11 @@ import { NgForm } from '@angular/forms';
 
 
 export class LoginPage implements OnInit {
-
-  constructor(public http: HttpClient, public toastController: ToastController, public navCtrl: NavController) { }
+  username=null;
+  name=null;
+  lastname=null;
+  
+  constructor(public http: HttpClient, public toastController: ToastController, public navCtrl: NavController, public global: GlobalProvider ) { }
 
   ngOnInit() {
 
@@ -41,11 +45,12 @@ export class LoginPage implements OnInit {
     this.http.post("http://localhost:3000/users/auth", postData)
       .subscribe(data => {
         console.log("Autenticación correcta");
-        this.navCtrl.navigateRoot('/articles');
+        this.username= postData.username;
         let da = JSON.parse(JSON.stringify(data))
-        console.log(da['name'])
-        console.log(da['lastname'])
-        console.log(da['username'])
+        this.name= da['name']; this.global.G_Name = this.name;
+        this.lastname= da['lastname']; this.global.G_Lastname= this.lastname;
+        this.username= da['username']; this.global.G_Username= this.username;
+        this.navCtrl.navigateRoot('/articles');
       }, error => {
         if(error.status==400){
           this.presentToast('Llene todo los campos');
@@ -56,3 +61,4 @@ export class LoginPage implements OnInit {
     });
   }
 }
+

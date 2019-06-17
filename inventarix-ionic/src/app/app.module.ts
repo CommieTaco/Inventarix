@@ -12,6 +12,7 @@ import {BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import {HttpClientModule} from '@angular/common/http';
 import { ModalPagePageModule } from './modal-page/modal-page.module';
+import { GlobalProvider } from './provider.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,7 +23,8 @@ import { ModalPagePageModule } from './modal-page/modal-page.module';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    BarcodeScanner
+    BarcodeScanner,
+    GlobalProvider
   ],
   bootstrap: [AppComponent]
 })
